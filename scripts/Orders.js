@@ -40,62 +40,17 @@ export const buildOrderListItem = (order) => {
 
 
     const pieces = getPieces()
-    for (const piece of pieces) {
-        if (piece.item === "ring") {
+
+     for (const piece of pieces) {
+        if (piece.id === 1) {
             return totalCost;
-        } else if (piece.item === "earring") {
-            totalCost = totalCost * 2
-        } else if (piece.item === "necklace") {
-            totalCost = totalCost * 4
+        } if (piece.id === 2) {
+            return totalCost * 2
+        } else if (piece.id === 3) {
+            return totalCost * 4
         }
     }
- 
 
-    // const pieces = getPieces()
-    // const foundPiece = () => {
-    //     for (const piece of pieces) {
-    //         if (piece.item === "ring") {
-    //             return totalCost;
-    //         } else if (piece.item === "earring") {
-    //             const newCostEarring = totalCost * 2
-    //             return newCostEarring;
-    //         } else if (piece.item === "necklace") {
-    //             const newCostNecklace = totalCost * 4
-    //             return newCostNecklace;        
-    //         }
-    //     }
-        
-    // }
-
-    // foundPiece() 
-
-
-
-
-
-
-//     const pieces = getPieces()
-
-  
-//     const foundPiece = pieces.forEach(
-//         (piece) => {
-//             if (piece.item === "ring") {
-//                 return totalCost;
-//             } else if (piece.item === "earring") {
-//                 const newCost = totalCost * 2
-//                 return newCost;
-//             } else if (piece.item === "necklace") {
-//                 const newCost2 = totalCost * 4
-//                 return newCost2;        
-//             }
-//         }
-//     )
-
-//    totalCost = foundPiece()
-
-    
-
-  
 
  
     const costString = totalCost.toLocaleString("en-US", {
