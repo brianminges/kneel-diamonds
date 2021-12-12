@@ -2,6 +2,8 @@ import { getOrders } from "./database.js"
 import { getMetals } from "./database.js"
 import { getSizes } from "./database.js"
 import { getStyles } from "./database.js"
+import { Pieces } from "./pieces.js"
+import { getPieces } from "./database.js"
 
 export const buildOrderListItem = (order) => {
     const metals = getMetals()
@@ -32,10 +34,70 @@ export const buildOrderListItem = (order) => {
             return style.id === order.styleId
         }
     )
+
+
+    let totalCost = foundMetal.price + foundSize.price + foundStyle.price
+
+
+    const pieces = getPieces()
+    for (const piece of pieces) {
+        if (piece.item === "ring") {
+            return totalCost;
+        } else if (piece.item === "earring") {
+            totalCost = totalCost * 2
+        } else if (piece.item === "necklace") {
+            totalCost = totalCost * 4
+        }
+    }
  
 
-    const totalCost = foundMetal.price + foundSize.price + foundStyle.price
+    // const pieces = getPieces()
+    // const foundPiece = () => {
+    //     for (const piece of pieces) {
+    //         if (piece.item === "ring") {
+    //             return totalCost;
+    //         } else if (piece.item === "earring") {
+    //             const newCostEarring = totalCost * 2
+    //             return newCostEarring;
+    //         } else if (piece.item === "necklace") {
+    //             const newCostNecklace = totalCost * 4
+    //             return newCostNecklace;        
+    //         }
+    //     }
+        
+    // }
+
+    // foundPiece() 
+
+
+
+
+
+
+//     const pieces = getPieces()
+
+  
+//     const foundPiece = pieces.forEach(
+//         (piece) => {
+//             if (piece.item === "ring") {
+//                 return totalCost;
+//             } else if (piece.item === "earring") {
+//                 const newCost = totalCost * 2
+//                 return newCost;
+//             } else if (piece.item === "necklace") {
+//                 const newCost2 = totalCost * 4
+//                 return newCost2;        
+//             }
+//         }
+//     )
+
+//    totalCost = foundPiece()
+
     
+
+  
+
+ 
     const costString = totalCost.toLocaleString("en-US", {
         style: "currency",
         currency: "USD"

@@ -1,6 +1,4 @@
 import { KneelDiamonds } from "./KneelDiamonds.js"
-import { DiamondSizes } from "./DiamondSizes.js"
-import { addCustomOrder } from "./database.js"
 
 const mainContainer = document.querySelector("#container")
 

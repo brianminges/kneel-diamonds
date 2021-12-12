@@ -25,10 +25,16 @@ ul {
 }
 
 #orderButton {
-    margin: 1rem 0 2rem 2rem;
+    margin: 0 0 2rem 2rem;
     padding: 0.5rem;
     background-color: rgb(227, 72, 72);
     color: lightgoldenrodyellow;
     font-size: 1rem;
+}
+
+#radioButton1, #radioButton2 #radioButton3 {
+  margin: 2rem 0 2rem 2rem;
+  padding: 0.5rem;
+  font-size: 1rem;
 }
 
